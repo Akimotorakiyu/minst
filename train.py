@@ -8,13 +8,24 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm,trange
 import torch
 
+def getDevice():
+    if torch.backends.mps.is_available():
+        return "mps"
+    if torch.backends.cuda.is_available():
+        return "cuda"
+    if torch.backends.cpu.is_available():
+        return "cpu"
+    
+    return "cpu"
+
 
 #超参数设置
 learning_rate=0.001#学习率
 epoch=20
 bach_size=128
 #定义使用设备
-device=torch.device( "cuda" if torch.cuda.is_available() else "cpu")
+device=torch.device(getDevice())
+
 
 #模型保存到定义的设备
 model=AlexModel().to(device)

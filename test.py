@@ -14,7 +14,7 @@ device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
 #创建损失函数
 LossF=torch.nn.CrossEntropyLoss()#使用交叉损失熵
 # 加载测试数据集
-test_data = torchvision.datasets.FashionMNIST(
+test_data = torchvision.datasets.MNIST(
     root="data",              # 数据集保存路径
     train=False,               # 加载训练集
     download=True,            # 如果本地没有数据集，则从互联网下载
