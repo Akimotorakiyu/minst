@@ -8,21 +8,29 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm,trange
 import torch
 
-def getDevice():
+
+def getBackend():
     if torch.backends.mps.is_available():
         return "mps"
     if torch.backends.cuda.is_available():
         return "cuda"
     if torch.backends.cpu.is_available():
+
         return "cpu"
     
     return "cpu"
+def getDevice():
+
+    backend = getBackend()
+    print("backend: ", backend)
+    return backend
+    
 
 
 #超参数设置
 learning_rate=0.001#学习率
 epoch=20
-bach_size=128
+bach_size=2048
 #定义使用设备
 device=torch.device(getDevice())
 
