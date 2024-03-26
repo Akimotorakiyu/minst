@@ -44,7 +44,8 @@ training_data = torchvision.datasets.MNIST(
     train=True,               # 加载训练集
     download=True,            # 如果本地没有数据集，则从互联网下载
     #对图片进行一系列变换
-    transform=torchvision.transforms.Compose([torchvision.transforms.Resize(224),#拉伸为alexnet输入图片的大小
+    transform=torchvision.transforms.Compose([
+        # torchvision.transforms.Resize(224),#拉伸为alexnet输入图片的大小
     torchvision.transforms.ToTensor(),# 将图像转换为张量
                                               ])
 )
@@ -53,7 +54,8 @@ test_data = torchvision.datasets.MNIST(
     root="data",              # 数据集保存路径
     train=False,               # 加载训练集
     download=True,            # 如果本地没有数据集，则从互联网下载
-    transform=torchvision.transforms.Compose([torchvision.transforms.Resize(224),#拉伸为alexnet输入图片的大小
+    transform=torchvision.transforms.Compose([
+        # torchvision.transforms.Resize(224),#拉伸为alexnet输入图片的大小
     torchvision.transforms.ToTensor(),# 将图像转换为张量
                                               ])
 )
