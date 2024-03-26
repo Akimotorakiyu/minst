@@ -22,7 +22,7 @@ class AlexModel(nn.Module):#定义AlexNet的模型
     def forward(self, x):#前向传播
         x= torch.flatten(x,start_dim=1) #torch.flatten是功能函数不是类，展平为一元
         x = self.layer0(x)
-        for i in range(2):
+        for i in range(1):
             x = self.layer1(x)
         x = self.fc(x)
         return x
