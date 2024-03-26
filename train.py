@@ -30,7 +30,7 @@ def getDevice():
 #超参数设置
 learning_rate=0.001#学习率
 epoch=20
-bach_size=2048
+bach_size=1024
 #定义使用设备
 device=torch.device(getDevice())
 
